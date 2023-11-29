@@ -1,5 +1,5 @@
 import React from "react";
-import MarketingApp from "./src/components/MarketingApp";
+import MarketingApp from "./components/MarketingApp";
 export default () => {
   return (
 

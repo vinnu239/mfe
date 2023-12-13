@@ -11,7 +11,7 @@ const prodConfig = {
     filename: "[name].[contenthash].js", // this is format of name that will see in the source file in chrome appendednwith script tag
     // this will be help once we run the cloudfron domain name it try to access the finename (main.0e678.js)
     //but our S3 bucket floder satrts with container and latest than our build files where our main.js is located
-    // so that why we are using below param
+    // so that why we are using below param 
     publicPath: "/container/latest/",
   },
   plugins: [

@@ -7,7 +7,9 @@ const packageJson = require('../package.json');
 const prodConfig ={
     mode: 'production',
     output: {
-        filename :'[name].[contenthash].js'
+        filename :'[name].[contenthash].js',
+        // this publicpath will helpful for remoteentry,js file for clear info look the contain prod.js file comments 
+        PublicPath:'/marketing/latest/',
     },
     plugins:[
         new ModuleFederationPlugin({

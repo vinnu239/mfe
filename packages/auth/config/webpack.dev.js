@@ -2,7 +2,7 @@ const { merge } = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const commonConfig = require("./webpack.common");
-const packageJson = require('../package.json');
+const packageJson = require("../package.json");
 
 const devConfig = {
   mode: "development",
@@ -10,25 +10,23 @@ const devConfig = {
     // this is for when we run the code in local we will get the 404 becuase the expected main.js file is not loaded 
     //while navigation to that particular path to over come this we are explicitly givin the path
     //the path no and port no must be same
-    publicPath: "http://localhost:8080/",
+    publicPath: "http://localhost:8082/",
   },
   devServer: {
-    port: 8080,
+    port: 8082,
     historyApiFallback: {
       index: "/index.html",
     },
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "container",
-      // this is the path for accessing the specific application 
-      // eg: for marketing after triggering this path it search for remoteentry.js inside webpack of marketing app thanit render the specific application content
-      remotes: {
-        marketing: "marketing@http://localhost:8081/remoteEntry.js",
-        auth:'auth@http://localhost:8082/remoteEntry.js'
+      name: "auth",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./AuthApp": "./src/bootstrap",
       },
       // shared :['react','react-dom'],
-      shared :packageJson.dependencies,
+      shared: packageJson.dependencies,
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",

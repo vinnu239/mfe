@@ -17,8 +17,11 @@ const prodConfig = {
   plugins: [
     new ModuleFederationPlugin({
       name: 'container',
+      // this is the path for accessing the specific application 
+      // eg: for marketing after triggering this path it search for remoteentry.js inside webpack of marketing app thanit render the specific application content
       remotes: {
         marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
+        auth: `auth@${domain}/auth/latest/remoteEntry.js`,
       },
       shared: packageJson.dependencies,
     }),

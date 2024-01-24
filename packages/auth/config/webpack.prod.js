@@ -8,15 +8,15 @@ const prodConfig ={
     mode: 'production',
     output: {
         filename :'[name].[contenthash].js',
-        // this publicpath will helpful for remoteentry,js file for clear info look the container prod.js file comments 
-        publicPath:'/marketing/latest/',
+        // this publicpath will helpful for remoteentry,js file for clear info look the contain prod.js file comments 
+        publicPath:'/auth/latest/',
     },
     plugins:[
         new ModuleFederationPlugin({
-            name : 'marketing',
+            name : 'auth',
             filename:'remoteEntry.js',
             exposes:{
-                './MarketingApp':'./src/bootstrap'
+                './AuthApp':'./src/bootstrap'
             },
             shared: packageJson.dependencies
         })

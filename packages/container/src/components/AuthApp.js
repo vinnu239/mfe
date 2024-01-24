@@ -1,13 +1,13 @@
-import { mount } from "marketing/MarketingApp";
+import { mount } from "auth/AuthApp";
 import React, { useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-export default () => {
+export default ({ onSignIn }) => {
   const ref = useRef(null);
   const history = useHistory();
   useEffect(() => {
     const { onParentNavigate } = mount(ref.current, {
-      initialPath:history.location.pathname,
+      initialPath: history.location.pathname,
       // this location object which containes the information where user was navigated
       // this location object was provided by history object which is used inside marketing bootstrapfile
       OnNavigate: ({ pathname: nextPathname }) => {
@@ -18,6 +18,8 @@ export default () => {
           history.push(nextPathname);
         }
       },
+      // it is the call back func used for auth application
+      onSignIn,
     });
     history.listen(onParentNavigate);
   }, []);

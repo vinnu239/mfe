@@ -25,7 +25,9 @@ const devConfig = {
       // eg: for marketing after triggering this path it search for remoteentry.js inside webpack of marketing app thanit render the specific application content
       remotes: {
         marketing: "marketing@http://localhost:8081/remoteEntry.js",
-        auth:'auth@http://localhost:8082/remoteEntry.js'
+        auth:'auth@http://localhost:8082/remoteEntry.js',
+        dashboard:'dashboard@http://localhost:8083/remoteEntry.js',
+
       },
       // shared :['react','react-dom'],
       shared :packageJson.dependencies,

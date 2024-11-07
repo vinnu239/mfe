@@ -1,9 +1,13 @@
 bootstrap.js --> which contains actual amount of application code
 index.js ||Main.js --> which import that bootstrap file the maim purpose it gives opportunity to webpack before execution of bootstrap.js it goes and fetch application code from different projects
 for the image check the photo in mobile captured on 23-nov(2023)
+
+
 **why we need cloud front**
 cloud fronrt which is responsible to expose the distribution files to outside world.
 In simple terms the build file which we stored in the S3 bucket 
+
+
 **What is the use of invalidation in cloudfront?**
 
 Cloudfront wont take the latest index.html if we done any updates
@@ -26,6 +30,8 @@ AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}                 AWS_SECRET_A
 we want to create .yml file in .github/workflows which github will run for us.Those commands will help to run if we push any changes.
 For detail commands got through the mfe code
 
+
+
 **What is the reason for incorrect alignment between prod and normal application?**
 
 In normal application each repo / application contain individual css
@@ -46,7 +52,9 @@ Both are different types of handling routing history for react-route dom
 Browser history: normally copy the domain path and pass to the router
 eg: domain/marketing/price --> marketing/pricing  Broswer history will capture and sent to router the router will see that url and publish that component
 Memory histroy: It will take the current user window path i,e is your are in pricing page it note down the pricing path in the memory
-Why we are using memory history for internal comp?
+
+
+**Why we are using memory history for internal comp?**
 
 eg is we have container marketing and auth comp
 if container is using  reactBrowser history along with auth will use Vue Browser history(names are same but the implemetation might be differ)
